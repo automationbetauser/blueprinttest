@@ -1,0 +1,21 @@
+inputs:
+  count:
+    type: string
+    default: '2'
+    title: WordPress Cluster Size
+    description: Wordpress cluster size
+  ami:
+    type: string
+    default: ami-f4cc1de2
+resources:
+  wordpress:
+    type: Cloud.Machine
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      name: wordpress
+      flavor: micro
+      count: '${input.count}'
+      imageRef: '${input.ami}'
